@@ -177,13 +177,13 @@ void loop()
   else if (pos == '2') {
     pos2 == true;
   }
-  else if (pos = '3') {
+  else if (pos == '3') {
     pos3 == true;
   }
-  else if (pos = '4') {
+  else if (pos == '4') {
     pos4 == true;
   }
-  else if (pos = '5') {
+  else if (pos == '5') {
     pos5 == true;
   }
   else if (pos == '6') {
@@ -192,7 +192,7 @@ void loop()
   else if (pos == '7') {
     pos7 == true;
   }
-  else if (pos = '8') {
+  else if (pos == '8') {
     pos8 = true;
   }
   else if (pos == '9') {
