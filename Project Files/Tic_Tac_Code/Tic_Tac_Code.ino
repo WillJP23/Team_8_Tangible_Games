@@ -20,6 +20,9 @@ void setup()
   pinMode(4, OUTPUT);
   pinMode(3, OUTPUT);
   pinMode(2, OUTPUT);
+  pinMode(ledPin, OUTPUT);
+  pinMode(buttonPin1, INPUT);
+  pinMode(buttonPin2, INPUT);
   Serial.begin(9600);
 }
 
@@ -61,6 +64,12 @@ void setup()
   int gwins = 0;
   int rwins = 0;
   char pos = 0;
+  const int buttonPin1 = 1;
+  const int buttonPin2 = 0;
+  int button1_State = 0;
+  int button2_State = 0;
+  int count_value =0;
+  int prestate =0;
 
 void loop()
 {
