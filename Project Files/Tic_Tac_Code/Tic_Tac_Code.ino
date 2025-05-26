@@ -152,6 +152,16 @@ void loop()
     digitalWrite(6, HIGH);
     digitalWrite(16, HIGH);
     digitalWrite(17, HIGH);
+    digitalWrite(19, HIGH);
+    delay(2000);
+    digitalWrite(12, LOW);
+    digitalWrite(8, LOW);
+    digitalWrite(13, LOW);
+    digitalWrite(7, LOW);
+    digitalWrite(1, LOW);
+    digitalWrite(6, LOW);
+    digitalWrite(16, LOW);
+    digitalWrite(17, LOW);
     digitalWrite(19, LOW);
     greenwin =  false;
   }
@@ -182,6 +192,16 @@ void loop()
     digitalWrite(16, LOW);
     digitalWrite(17, LOW);
     digitalWrite(19, LOW);
+    delay(2000);
+    digitalWrite(11, LOW);
+    digitalWrite(9, LOW);
+    digitalWrite(10, LOW);
+    digitalWrite(5, LOW);
+    digitalWrite(1, LOW);
+    digitalWrite(4, LOW);
+    digitalWrite(14, LOW);
+    digitalWrite(15, LOW);
+    digitalWrite(18, LOW);
     redwin = false;
   }
 
