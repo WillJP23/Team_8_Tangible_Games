@@ -268,6 +268,13 @@ void loop()
           delay(200);
           digitalWrite(2, LOW);
         }    
+        else if (r5 == false && g5 == false) {
+          digitalWrite(3, HIGH);
+          digitalWrite(2, HIGH);
+          delay(200);
+          digitalWrite(3, LOW);
+          digitalWrite(2, LOW);
+        }
         pos = count_value;
       }
       if (count_value == 6) {
@@ -281,6 +288,13 @@ void loop()
           delay(200);
           digitalWrite(6, LOW);
         }  
+        else if (r6 == false && g6 == false) {
+          digitalWrite(4, HIGH);
+          digitalWrite(6, HIGH);
+          delay(200);
+          digitalWrite(4, LOW);
+          digitalWrite(6, LOW);
+        }
         pos = count_value;
       }
       if (count_value == 7) {
@@ -292,6 +306,13 @@ void loop()
         if (r7 == true) {
           digitalWrite(16, HIGH);
           delay(200);
+          digitalWrite(16, LOW);
+        }
+        else if (r7 == false && g7 == false) {
+          digitalWrite(14, HIGH);
+          digitalWrite(16, HIGH);
+          delay(200);
+          digitalWrite(14, LOW);
           digitalWrite(16, LOW);
         }
         pos = count_value;
@@ -307,19 +328,33 @@ void loop()
           delay(200);
           digitalWrite(17, LOW);
         } 
+        else if (r8 == false && g8 == false) {
+          digitalWrite(15, HIGH);
+          digitalWrite(17, HIGH);
+          delay(200);
+          digitalWrite(15, LOW);
+          digitalWrite(17, LOW);
+        }
         pos = count_value;
       }
       if (count_value == 9) {
-        if (g8 == true) {
+        if (g9 == true) {
           digitalWrite(18, HIGH);
           delay(200);
           digitalWrite(18, LOW);
         }
-        if (r8 == true) {
+        if (r9 == true) {
           digitalWrite(19, HIGH);
           delay(200);
           digitalWrite(19, LOW);
         } 
+        else if (r9 == false && g9 == false) {
+          digitalWrite(18, HIGH);
+          digitalWrite(18, HIGH);
+          delay(200);
+          digitalWrite(18, LOW);
+          digitalWrite(18, LOW);
+        }
         pos = count_value;
       }
     }
