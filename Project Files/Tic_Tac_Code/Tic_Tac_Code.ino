@@ -1,5 +1,9 @@
 // C++ code
 //
+  const int buttonPin1 = 1;
+  const int buttonPin2 = 0;
+  const int ledPin = 5;
+
 void setup()
 {
   pinMode(A5, OUTPUT);
@@ -25,7 +29,6 @@ void setup()
   pinMode(buttonPin2, INPUT);
   Serial.begin(9600);
 }
-
   //put outside loop?
   bool r1 = false; 
   bool r2 = false; 
@@ -46,7 +49,6 @@ void setup()
   bool g7 = false;
   bool g8 = false;
   bool g9 = false;
-    //greenred = false, means that the current player is red - Maybe redundant?
   bool pos1 = false;
   bool pos2 = false;
   bool pos3 = false; 
@@ -64,8 +66,6 @@ void setup()
   int gwins = 0;
   int rwins = 0;
   char pos = 0;
-  const int buttonPin1 = 1;
-  const int buttonPin2 = 0;
   int button1_State = 0;
   int button2_State = 0;
   int count_value =0;
@@ -160,22 +160,24 @@ void loop()
     message = true;
   }
 
+  //computer input code below - replaced by button
   if (Serial.available() > 0) {
     Serial.println ("Please Select a Valid Square");
-    //add a grid here?
     pos = Serial.read();
     Serial.println(pos);
   }
   //determines which square is chosen
-
+  //greenred true = green
   if ((pos == '1') && (r1 == false) && (g1 == false)) {
     if ((greenred == false) && (g1 == false)) {
-    digitalWrite(13, HIGH);
+    digitalWrite(11, HIGH);
+    delay(10); // Delay a little bit to improve simulation performance
     greenred = true;
     r1 = true;
     }
     if ((greenred == true) && (r1 == false)) {
-    digitalWrite(11, HIGH);
+    digitalWrite(12, HIGH);
+    delay(10); // Delay a little bit to improve simulation performance
     greenred = false;
     g1 = true;
     }
@@ -185,11 +187,13 @@ void loop()
   else if ((pos == '2') && (r2 == false) && (g2 == false)) {
     if ((greenred == false) && (g2 == false)) {
     digitalWrite(9, HIGH);
+    delay(10); // Delay a little bit to improve simulation performance
     greenred = true;
     r2 = true;
     }
     if ((greenred == true) && (r2 == false)) {
     digitalWrite(8, HIGH);
+    delay(10); // Delay a little bit to improve simulation performance
     greenred = false;
     g2 = true;
     }
@@ -198,12 +202,14 @@ void loop()
   }
   else if ((pos == '3') && (r3 == false) && (g3 == false)) {
     if ((greenred == false) && (g3 == false)) {
-    digitalWrite(12, HIGH);
+    digitalWrite(10, HIGH);
+    delay(10); // Delay a little bit to improve simulation performance
     greenred = true;
     r3 = true;
     }
     if ((greenred == true) && (r3 == false)) {
-    digitalWrite(10, HIGH);
+    digitalWrite(13, HIGH);
+    delay(10); // Delay a little bit to improve simulation performance
     greenred = false;
     g3 = true;
     }
@@ -212,12 +218,14 @@ void loop()
   }
   else if ((pos == '4') && (r4 == false) && (g4 == false)) {
     if ((greenred == false) && (g4 == false)) {
-    digitalWrite(7, HIGH);
+    digitalWrite(5, HIGH);
+    delay(10); // Delay a little bit to improve simulation performance
     greenred = true;
     r4 = true;
     }
     if ((greenred == true) && (r4 == false)) {
-    digitalWrite(5, HIGH);
+    digitalWrite(7, HIGH);
+    delay(10); // Delay a little bit to improve simulation performance
     greenred = false;
     g4 = true;
     }
@@ -226,12 +234,14 @@ void loop()
   }
   else if ((pos == '5') && (r5 == false) && (g5 == false)) {
     if ((greenred == false) && (g5 == false)) {
-    digitalWrite(6, HIGH);
+    digitalWrite(3, HIGH);
+    delay(10); // Delay a little bit to improve simulation performance
     greenred = true;
     r5 = true;
     }
     if ((greenred == true) && (r5 == false)) {
-    digitalWrite(4, HIGH);
+    digitalWrite(2, HIGH);
+    delay(10); // Delay a little bit to improve simulation performance
     greenred = false;
     g5 = true;
     }
@@ -240,12 +250,14 @@ void loop()
   }
   else if ((pos == '6') && (r6 == false) && (g6 == false)) {
     if ((greenred == false) && (g6 == false)) {
-    digitalWrite(3, HIGH);
+    digitalWrite(4, HIGH);
+    delay(10); // Delay a little bit to improve simulation performance
     greenred = true;
     r6 = true;
     }
     if ((greenred == true) && (r6 == false)) {
-    digitalWrite(2, HIGH);
+    digitalWrite(6, HIGH);
+    delay(10); // Delay a little bit to improve simulation performance
     greenred = false;
     g6 = true;
     }
@@ -255,11 +267,13 @@ void loop()
   else if ((pos == '7') && (r7 == false) && (g7 == false)) {
     if ((greenred == false) && (g7 == false)) {
     digitalWrite(A0, HIGH);
+    delay(10); // Delay a little bit to improve simulation performance
     greenred = true;
     r7 = true;
     }
     if ((greenred == true) && (r7 == false)) {
     digitalWrite(A2, HIGH);
+    delay(10); // Delay a little bit to improve simulation performance
     greenred = false;
     g7 = true;
     }
@@ -269,11 +283,13 @@ void loop()
   else if ((pos == '8') && (r8 == false) && (g8 == false)) {
     if ((greenred == false) && (g8 == false)) {
     digitalWrite(A1, HIGH);
+    delay(10); // Delay a little bit to improve simulation performance
     greenred = true;
     r8 = true;
     }
     if ((greenred == true) && (r8 == false)) {
     digitalWrite(A3, HIGH);
+    delay(10); // Delay a little bit to improve simulation performance
     greenred = false;
     g8 = true;
     }
@@ -283,11 +299,13 @@ void loop()
   else if ((pos == '9') && (r9 == false) && (g9 == false)) {
     if ((greenred == false) && (g9 == false)) {
     digitalWrite(A4, HIGH);
+    delay(10); // Delay a little bit to improve simulation performance
     greenred = true;
     r9 = true;
     }
     if ((greenred == true) && (r9 == false)) {
     digitalWrite(A5, HIGH);
+    delay(10); // Delay a little bit to improve simulation performance
     greenred = false;
     g9 = true;
     }
@@ -295,28 +313,4 @@ void loop()
 
     pos9 = false;
   }
-  else {
-    //make sure this works
-    Serial.print ("Please Input a Valid Posistion\n");
-  }
-
-  //if current player is green/red and a posistion 1 is selected, then 
-  //need to work out the rest
-  digitalWrite(A5, HIGH);
-  digitalWrite(A4, HIGH);
-  digitalWrite(A3, HIGH);
-  digitalWrite(A2, HIGH);
-  digitalWrite(A1, HIGH);
-  digitalWrite(A0, HIGH);
-  digitalWrite(11, HIGH);
-  digitalWrite(10, HIGH);
-  digitalWrite(9, HIGH);
-  digitalWrite(8, HIGH);
-  digitalWrite(7, HIGH);
-  digitalWrite(6, HIGH);
-  digitalWrite(5, HIGH);
-  digitalWrite(4, HIGH);
-  digitalWrite(3, HIGH);
-  digitalWrite(2, HIGH);
-  delay(10); // Delay a little bit to improve simulation performance
 }
