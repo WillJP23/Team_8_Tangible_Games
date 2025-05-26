@@ -18,3 +18,14 @@
 - The issue I then had was combining the working code for the 18 LEDs & the 2 buttons - this took some time as I had to adapt quite a few things in the code to match and then systematically bug fix to get the code working.
 - Eventually I managed to get this code to work & removed the computer serial input code as this was no longer needed or functional.
 - The final piece of code I added was to make all the lights go green or red on the relevant player winning.
+## Evaluation
+### Playability
+Accessability: from one of my player's feedback they suggested they inquired how my project may be used for disabled people, if they cannot push the buttons for example; adding code for a voice commands could be one solution, if the player is blind this would also work & having brail on the buttons might also help.
+### Engagement
+- Having lots of flashing colours & LEDs makes the project look quite appealing, however perhaps the wires may obscure these and reduce visability.
+- There is the option to use the computer & the serial box instead of using the buttons- while this isn't strictly tangible playing the game that way; it is another way of playing it.
+### Ideas for Improvement
+- Changing the coloured LEDs for RGB LEDs: the wiring got quite messy so I think this would help with that and would make the code more efficient
+- Adding a OLED display so that there would be a digital board instead of the LEDs could be another alternative, this way any coding or messages that rely off of the serial box could be display on that instead.
+- Maybe an expanded slot extension for more Arduino PINs & also another breadboard to make the circuitry neater.
+- Use of a laser cutter or 3D printer to make the overall product look more aesthetically appealing.
