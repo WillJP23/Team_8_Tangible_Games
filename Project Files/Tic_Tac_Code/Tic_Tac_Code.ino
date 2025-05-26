@@ -59,6 +59,7 @@ void setup()
   bool redwin = false;
   bool greenwin = false;
   bool message = false;
+  bool message2 = false;
   int gwins = 0;
   int rwins = 0;
   int pos = 0;
@@ -148,16 +149,16 @@ void loop()
 
   //Outputs Current Player to Console, greenred false means current player is red
   if ((greenred == false) && (message == false) && (pos == 0)) {
-    Serial.println (count_value);
-    Serial.println (pos);
     Serial.println ("Current Player: Red");
     message = true;
+    message2 = true;
+    count_value = 0;
   } 
   if ((greenred == true) && (message == false) && (pos == 0)) {
-    Serial.println (count_value);
-    Serial.println (pos);
     Serial.println ("Current Player: Green");
     message = true;
+    message2 = true;
+    count_value = 0;
   }
   //computer input code below - replaced by button
   //if (Serial.available() > 0) {
@@ -175,15 +176,15 @@ void loop()
       count_value = 1;
     }
     // turn LED on
-    if (message == true) {
-      if (count_value == 1) {
+    if (message2 == true) {
+      if (count_value == 1 ) {
         //if green is true, greenred false = red player
-        if (g1 == true && greenred == false) {
+        if (g1 == true && r1 == false) {
           digitalWrite(11, HIGH);
           delay(200);
           digitalWrite(11, LOW);
         }
-        else if (r1 == true && greenred == true) {
+        else if (r1 == true && g1 == false) {
           digitalWrite(12, HIGH);
           delay(200);
           digitalWrite(12, LOW);
@@ -195,15 +196,15 @@ void loop()
           digitalWrite(11, LOW);
           digitalWrite(12, LOW);
         }
-        pos = count_value;
+        pos = 1;
       }
-      if (count_value == 2) {
-        if (g2 == true && greenred == true) {
+      if (count_value == 2 ) {
+        if (g2 == true && r2 == false) {
           digitalWrite(9, HIGH);
           delay(200);
           digitalWrite(9, LOW);
         }
-        else if (r2 == true && greenred == false) {
+        else if (r2 == true && g2 == false) {
           digitalWrite(8, LOW);
           delay(200);
           digitalWrite(8, LOW);
@@ -215,15 +216,15 @@ void loop()
           digitalWrite(9, LOW);
           digitalWrite(8, LOW);
         }
-        pos = count_value;
+        pos = 2;
       }
-      if (count_value == 3) {
-        if (g3 == true && greenred == true) {
+      if (count_value == 3 ) {
+        if (g3 == true && r3 == false) {
           digitalWrite(10, HIGH);
           delay(200);
           digitalWrite(10, LOW);
         }
-        else if (r3 == true && greenred == false) {
+        else if (r3 == true && g3 == false) {
           digitalWrite(13, HIGH);
           delay(200);
           digitalWrite(13, LOW);
@@ -235,15 +236,15 @@ void loop()
           digitalWrite(10, LOW);
           digitalWrite(13, LOW);
         }
-        pos = count_value;
+        pos = 3;
       }
-      if (count_value == 4) {
-        if (g4 == true && greenred == true) {
+      if (count_value == 4 ) {
+        if (g4 == true && r4 == false) {
           digitalWrite(5, HIGH);
           delay(200);
           digitalWrite(5, LOW);
         }
-        if (r4 == true && greenred == false) {
+        else if (r4 == true && g4 == false) {
           digitalWrite(7, HIGH);
           delay(200);
           digitalWrite(7, LOW);
@@ -255,35 +256,35 @@ void loop()
           digitalWrite(5, LOW);
           digitalWrite(7, LOW);
         }
-        pos = count_value;
+        pos = 4;
       }
-      if (count_value == 5) {
-        if (g5 == true) {
-          digitalWrite(3, HIGH);
+      if (count_value == 5 ) {
+        if (g5 == true && r5 == false) {
+          digitalWrite(1, HIGH);
           delay(200);
-          digitalWrite(3, LOW);
+          digitalWrite(1, LOW);
         }
-        if (r5 == true) {
-          digitalWrite(2, HIGH);
+        else if (r5 == true && g5 == false) {
+          digitalWrite(0, HIGH);
           delay(200);
-          digitalWrite(2, LOW);
+          digitalWrite(0, LOW);
         }    
         else if (r5 == false && g5 == false) {
-          digitalWrite(3, HIGH);
-          digitalWrite(2, HIGH);
+          digitalWrite(1, HIGH);
+          digitalWrite(0, HIGH);
           delay(200);
-          digitalWrite(3, LOW);
-          digitalWrite(2, LOW);
+          digitalWrite(1, LOW);
+          digitalWrite(0, LOW);
         }
-        pos = count_value;
+        pos = 5;
       }
-      if (count_value == 6) {
-        if (g6 == true) {
+      if (count_value == 6  && r5 == false && g5 == false) {
+        if (g6 == true && r6 == false) {
           digitalWrite(4, HIGH);
           delay(200);
           digitalWrite(4, LOW);
         }
-        if (r6 == true) {
+        else if (r6 == true && g6 == false) {
           digitalWrite(6, HIGH);
           delay(200);
           digitalWrite(6, LOW);
@@ -295,15 +296,15 @@ void loop()
           digitalWrite(4, LOW);
           digitalWrite(6, LOW);
         }
-        pos = count_value;
+        pos = 6;
       }
-      if (count_value == 7) {
-        if (g7 == true) {
+      if (count_value == 7 ) {
+        if (g7 == true && r7 == false) {
           digitalWrite(14, HIGH);
           delay(200);
           digitalWrite(14, LOW);
         }
-        if (r7 == true) {
+        else if (r7 == true && g7 == false) {
           digitalWrite(16, HIGH);
           delay(200);
           digitalWrite(16, LOW);
@@ -315,15 +316,15 @@ void loop()
           digitalWrite(14, LOW);
           digitalWrite(16, LOW);
         }
-        pos = count_value;
+        pos = 7;
       }
-      if (count_value == 8) {
-        if (g8 == true) {
+      if (count_value == 8 ) {
+        if (g8 == true && r8 == false) {
           digitalWrite(15, HIGH);
           delay(200);
           digitalWrite(15, LOW);
         }
-        if (r8 == true) {
+        else if (r8 == true && g8 == false) {
           digitalWrite(17, HIGH);
           delay(200);
           digitalWrite(17, LOW);
@@ -335,15 +336,15 @@ void loop()
           digitalWrite(15, LOW);
           digitalWrite(17, LOW);
         }
-        pos = count_value;
+        pos = 8;
       }
       if (count_value == 9) {
-        if (g9 == true) {
+        if (g9 == true && r9 == false) {
           digitalWrite(18, HIGH);
           delay(200);
           digitalWrite(18, LOW);
         }
-        if (r9 == true) {
+        else if (r9 == true && g9 == false) {
           digitalWrite(19, HIGH);
           delay(200);
           digitalWrite(19, LOW);
@@ -355,54 +356,59 @@ void loop()
           digitalWrite(18, LOW);
           digitalWrite(18, LOW);
         }
-        pos = count_value;
+        pos = 9;
       }
     }
     Serial.print("Current Possition: ");
     Serial.println(count_value);
     prestate = 1;
   }
+
   //push button 2 --
   else if (button2_State == HIGH && prestate == 0) {
-    if ((pos = 1) && (r1 == false) && (g1 == false)) {
-    Serial.println("Posistion 1");
-    if ((greenred == false) && (g1 == false)) {
-    digitalWrite(11, HIGH);
-    delay(10); // Delay a little bit to improve simulation performance
-    greenred = true;
-    r1 = true;
+    Serial.println (count_value);
+    pos = count_value;
+    Serial.println (count_value);
+    if (pos == 0) {
+      message = false;
+      pos = 0;
     }
-    if ((greenred == true) && (r1 == false)) {
-    digitalWrite(12, HIGH);
-    delay(10); // Delay a little bit to improve simulation performance
-    greenred = false;
-    g1 = true;
+    else if ((pos == 1) && (r1 == false) && (g1 == false)) {
+      if ((greenred == false) && (g1 == false)) {
+        digitalWrite(11, HIGH);
+        delay(10); // Delay a little bit to improve simulation performance
+        greenred = true;
+        r1 = true;
+      }
+      else if ((greenred == true) && (r1 == false)) {
+        digitalWrite(12, HIGH);
+        delay(10); // Delay a little bit to improve simulation performance
+        greenred = false;
+        g1 = true;
+      }
+      message = false;
+      pos1 = false;
+      pos = 0;
     }
-    message = false;
-    pos1 = false;
-    pos = 0;
-    count_value = 0;
-  }
-  else if ((pos = 2) && (r2 == false) && (g2 == false)) {
-    Serial.println("Posistion 2");
-    if ((greenred == false) && (g2 == false)) {
-    digitalWrite(9, HIGH);
-    delay(10); // Delay a little bit to improve simulation performance
-    greenred = true;
-    r2 = true;
+    else if ((pos == 2) && (r2 == false) && (g2 == false)) {
+      if ((greenred == false) && (g2 == false)) {
+        digitalWrite(9, HIGH);
+        delay(10); // Delay a little bit to improve simulation performance
+        greenred = true;
+        r2 = true;
+        Serial.println ("pos");
+      }
+      else if ((greenred == true) && (r2 == false)) {
+        digitalWrite(8, HIGH);
+        delay(10); // Delay a little bit to improve simulation performance
+        greenred = false;
+        g2 = true;
+      }
+      message = false;
+      pos2 = false;
+      pos = 0;
     }
-    if ((greenred == true) && (r2 == false)) {
-    digitalWrite(8, HIGH);
-    delay(10); // Delay a little bit to improve simulation performance
-    greenred = false;
-    g2 = true;
-    }
-    message = false;
-    pos2 = false;
-    pos = 0;
-    count_value = 0;
-  }
-  else if ((pos = 3) && (r3 == false) && (g3 == false)) {
+    else if ((pos == 3) && (r3 == false) && (g3 == false)) {
     if ((greenred == false) && (g3 == false)) {
     digitalWrite(10, HIGH);
     delay(10); // Delay a little bit to improve simulation performance
@@ -418,9 +424,8 @@ void loop()
     message = false;
     pos3 = false;
     pos = 0;
-    count_value = 0;
-  }
-  else if ((pos = 4) && (r4 == false) && (g4 == false)) {
+    }
+    else if ((pos == 4) && (r4 == false) && (g4 == false)) {
     if ((greenred == false) && (g4 == false)) {
     digitalWrite(5, HIGH);
     delay(10); // Delay a little bit to improve simulation performance
@@ -436,17 +441,16 @@ void loop()
     message = false;
     pos4 = false;
     pos = 0;
-    count_value = 0;
-  }
-  else if ((pos = 5) && (r5 == false) && (g5 == false)) {
+    }
+    else if ((pos == 5) && (r5 == false) && (g5 == false)) {
     if ((greenred == false) && (g5 == false)) {
-    digitalWrite(3, HIGH);
+    digitalWrite(1, HIGH);
     delay(10); // Delay a little bit to improve simulation performance
     greenred = true;
     r5 = true;
     }
     if ((greenred == true) && (r5 == false)) {
-    digitalWrite(2, HIGH);
+    digitalWrite(0, HIGH);
     delay(10); // Delay a little bit to improve simulation performance
     greenred = false;
     g5 = true;
@@ -454,9 +458,9 @@ void loop()
     message = false;
     pos5 = false;
     pos = 0;
-    count_value = 0;
-  }
-  else if ((pos = 6) && (r6 == false) && (g6 == false)) {
+
+    }
+    else if ((pos == 6) && (r6 == false) && (g6 == false)) {
     if ((greenred == false) && (g6 == false)) {
     digitalWrite(4, HIGH);
     delay(10); // Delay a little bit to improve simulation performance
@@ -472,9 +476,8 @@ void loop()
     message = false;
     pos6 = false;
     pos = 0;
-    count_value = 0;
-  }
-  else if ((pos = 7) && (r7 == false) && (g7 == false)) {
+    }
+    else if ((pos == 7) && (r7 == false) && (g7 == false)) {
     if ((greenred == false) && (g7 == false)) {
     digitalWrite(14, HIGH);
     delay(10); // Delay a little bit to improve simulation performance
@@ -490,9 +493,8 @@ void loop()
     message = false;
     pos7 = false;
     pos = 0;
-    count_value = 0;
-  }
-  else if ((pos = 8) && (r8 == false) && (g8 == false)) {
+    }
+    else if ((pos == 8) && (r8 == false) && (g8 == false)) {
     if ((greenred == false) && (g8 == false)) {
     digitalWrite(15, HIGH);
     delay(10); // Delay a little bit to improve simulation performance
@@ -508,9 +510,8 @@ void loop()
     message = false;
     pos8 = false;
     pos = 0;
-    count_value = 0;
-  }
-  else if ((pos = 9) && (r9 == false) && (g9 == false)) {
+    }
+    else if ((pos == 9) && (r9 == false) && (g9 == false)) {
     if ((greenred == false) && (g9 == false)) {
     digitalWrite(18, HIGH);
     delay(10); // Delay a little bit to improve simulation performance
@@ -526,9 +527,9 @@ void loop()
     message = false;
     pos9 = false;
     pos = 0;
-    count_value = 0;
-  }
+    }
   prestate = 1;
+  message2 = false;
   } 
   else if(button1_State == LOW && button2_State == LOW) {
     prestate = 0;
