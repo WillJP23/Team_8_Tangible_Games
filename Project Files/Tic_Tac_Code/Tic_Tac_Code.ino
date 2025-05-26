@@ -1,14 +1,13 @@
 // C++ code
 //
-  //const int buttonPin1 = 2, buttonPin2 = 3;
 void setup()
 {
-  pinMode(A5, OUTPUT);
-  pinMode(A4, OUTPUT);
-  pinMode(A3, OUTPUT);
-  pinMode(A2, OUTPUT);
-  pinMode(A1, OUTPUT);
-  pinMode(A0, OUTPUT);
+  pinMode(19, OUTPUT);
+  pinMode(18, OUTPUT);
+  pinMode(17, OUTPUT);
+  pinMode(16, OUTPUT);
+  pinMode(15, OUTPUT);
+  pinMode(14, OUTPUT);
   pinMode(13, OUTPUT);
   pinMode(12, OUTPUT);
   pinMode(11, OUTPUT);
@@ -21,8 +20,8 @@ void setup()
   pinMode(4, OUTPUT);
   pinMode(3, INPUT_PULLUP);
   pinMode(2, INPUT_PULLUP);
-  //pinMode(buttonPin1, INPUT);
-  //pinMode(buttonPin2, INPUT);
+  pinMode(1, OUTPUT);
+  pinMode(0, OUTPUT);
   Serial.begin(9600);
 }
   //put outside loop?
@@ -73,36 +72,37 @@ void loop()
   //sequence determining if a winner is here
   //Green Win Conditions
   // - Horizontals
-  if ((g1 == true) && (g2 == true) && (g3 == true)) {
+  if (greenwin == false && redwin == false) {
+    if ((g1 == true) && (g2 == true) && (g3 == true)) {
     greenwin = true;
-  }
-  if ((g4 == true) && (g5 == true) && (g6 == true)){
+    }
+    if ((g4 == true) && (g5 == true) && (g6 == true)){
     greenwin = true;
-  }
-  if ((g7 == true) && (g8 == true) && (g9 == true)) {
+    }
+    if ((g7 == true) && (g8 == true) && (g9 == true)) {
     greenwin = true;
-  }
+    }
   // - Verticals
-  if ((g1 == true) && (g4 == true) && (g7 == true)) {
+    if ((g1 == true) && (g4 == true) && (g7 == true)) {
     greenwin = true;
-  }
-  if ((g2 == true) && (g5 == true) && (g8 == true)) {
+    }
+    if ((g2 == true) && (g5 == true) && (g8 == true)) {
     greenwin = true;
-  }
-  if ((g3 == true) && (g6 == true) && (g9 == true)) {
+    }
+    if ((g3 == true) && (g6 == true) && (g9 == true)) {
     greenwin = true;
-  }
+    }
   // - Diagonals
-  if ((g1 == true) && (g5 == true) && (g9 == true)) {
+    if ((g1 == true) && (g5 == true) && (g9 == true)) {
     greenwin = true;
-  }
-  if ((g3 == true) && (g5 == true) && (g7 == true)) {
+    }
+    if ((g3 == true) && (g5 == true) && (g7 == true)) {
     greenwin = true;
-  }
+    }
   //Red Win Conditions
-  if ((r1 == true) && (r2 == true) && (r3 == true)) {
+    if ((r1 == true) && (r2 == true) && (r3 == true)) {
     redwin = true;
-  }
+    }
   if ((r4 == true) && (r5 == true) && (r6 == true)) {
     redwin = true;
   }
@@ -123,6 +123,7 @@ void loop()
   }
   if ((r3 == true) && (r5 == true) && (r7 == true)) {
     redwin = true;
+  }
   }
 
   //winner script
@@ -153,6 +154,8 @@ void loop()
     digitalWrite(16, HIGH);
     digitalWrite(17, HIGH);
     digitalWrite(19, HIGH);
+    greenwin = false;
+    if (greenwin == false) {
     delay(2000);
     digitalWrite(12, LOW);
     digitalWrite(8, LOW);
@@ -163,7 +166,26 @@ void loop()
     digitalWrite(16, LOW);
     digitalWrite(17, LOW);
     digitalWrite(19, LOW);
-    greenwin =  false;
+    g1 = false;
+    g2 = false;
+    g3 = false;
+    g4 = false;
+    g5 = false;
+    g6 = false;
+    g7 = false;
+    g8 = false;
+    g9 = false;
+    r1 = false;
+    r2 = false;
+    r3 = false;
+    r4 = false;
+    r5 = false;
+    r6 = false;
+    r7 = false;
+    r8 = false;
+    r9 = false;
+    greenred = false;
+    }
   }
   if ((redwin == true)) {
     Serial.println ("Winner: Red Player\n");
@@ -192,17 +214,38 @@ void loop()
     digitalWrite(16, LOW);
     digitalWrite(17, LOW);
     digitalWrite(19, LOW);
-    delay(2000);
-    digitalWrite(11, LOW);
-    digitalWrite(9, LOW);
-    digitalWrite(10, LOW);
-    digitalWrite(5, LOW);
-    digitalWrite(1, LOW);
-    digitalWrite(4, LOW);
-    digitalWrite(14, LOW);
-    digitalWrite(15, LOW);
-    digitalWrite(18, LOW);
     redwin = false;
+    if (redwin == false) {
+      delay(2000);
+      digitalWrite(11, LOW);
+      digitalWrite(9, LOW);
+      digitalWrite(10, LOW);
+      digitalWrite(5, LOW);
+      digitalWrite(1, LOW);
+      digitalWrite(4, LOW);
+      digitalWrite(14, LOW);
+      digitalWrite(15, LOW);
+      digitalWrite(18, LOW);
+      g1 = false;
+      g2 = false;
+      g3 = false;
+      g4 = false;
+      g5 = false;
+      g6 = false;
+      g7 = false;
+      g8 = false;
+      g9 = false;
+      r1 = false;
+      r2 = false;
+      r3 = false;
+      r4 = false;
+      r5 = false;
+      r6 = false;
+      r7 = false;
+      r8 = false;
+      r9 = false;
+      greenred = false;
+    }
   }
 
   //Outputs Current Player to Console, greenred false means current player is red
