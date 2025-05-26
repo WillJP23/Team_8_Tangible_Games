@@ -1,9 +1,5 @@
 // C++ code
 //
-  const int buttonPin1 = 1;
-  const int buttonPin2 = 0;
-  const int ledPin = 5;
-
 void setup()
 {
   pinMode(A5, OUTPUT);
@@ -22,8 +18,8 @@ void setup()
   pinMode(6, OUTPUT);
   pinMode(5, OUTPUT);
   pinMode(4, OUTPUT);
-  pinMode(3, OUTPUT);
-  pinMode(2, OUTPUT);
+  pinMode(3, INPUT_PULLUP);
+  pinMode(2, INPUT_PULLUP);
   pinMode(ledPin, OUTPUT);
   pinMode(buttonPin1, INPUT);
   pinMode(buttonPin2, INPUT);
@@ -165,6 +161,34 @@ void loop()
     Serial.println ("Please Select a Valid Square");
     pos = Serial.read();
     Serial.println(pos);
+  }
+  // read the state of the pushbutton
+  button1_State = digitalRead(buttonPin1);
+  button2_State = digitalRead(buttonPin2);
+  // counter increment if the pushbutton 1 is pressed.
+  if (button1_State == HIGH && prestate == 0) {
+    count_value++;
+      Serial.println(count_value);
+    // turn LED on
+    digitalWrite(ledPin, HIGH);
+    delay(200);
+     // turn LED off
+    digitalWrite(ledPin, LOW);
+    prestate = 1;
+  }
+// counter decrement if the pushbutton 2 is pressed.
+  else if (button2_State == HIGH && prestate == 0) {
+    count_value--;
+      Serial.println(count_value);
+    // turn LED on
+    digitalWrite(ledPin, HIGH);
+    delay(100);
+     // turn LED off
+    digitalWrite(ledPin, LOW);
+    prestate = 1;
+  } 
+ else if(button1_State == LOW && button2_State == LOW) {
+    prestate = 0;
   }
   //determines which square is chosen
   //greenred true = green
