@@ -134,7 +134,26 @@ void loop()
     Serial.print ("Red Win Total: ");
     Serial.println (rwins);
     //need to add other positions after
-    redwin =  false;
+    digitalWrite(11, LOW);
+    digitalWrite(9, LOW);
+    digitalWrite(10, LOW);
+    digitalWrite(5, LOW);
+    digitalWrite(1, LOW);
+    digitalWrite(4, LOW);
+    digitalWrite(14, LOW);
+    digitalWrite(15, LOW);
+    digitalWrite(18, LOW);
+    //red on, green off
+    digitalWrite(12, HIGH);
+    digitalWrite(8, HIGH);
+    digitalWrite(13, HIGH);
+    digitalWrite(7, HIGH);
+    digitalWrite(1, HIGH);
+    digitalWrite(6, HIGH);
+    digitalWrite(16, HIGH);
+    digitalWrite(17, HIGH);
+    digitalWrite(19, LOW);
+    greenwin =  false;
   }
   if ((redwin == true)) {
     Serial.println ("Winner: Red Player\n");
@@ -144,7 +163,26 @@ void loop()
     Serial.print ("Red Win Total: ");
     Serial.println (rwins);
     //need to add other positions after
-    greenwin = false;
+    digitalWrite(11, HIGH);
+    digitalWrite(9, HIGH);
+    digitalWrite(10, HIGH);
+    digitalWrite(5, HIGH);
+    digitalWrite(1, HIGH);
+    digitalWrite(4, HIGH);
+    digitalWrite(14, HIGH);
+    digitalWrite(15, HIGH);
+    digitalWrite(18, HIGH);
+    //red on, green off
+    digitalWrite(12, LOW);
+    digitalWrite(8, LOW);
+    digitalWrite(13, LOW);
+    digitalWrite(7, LOW);
+    digitalWrite(1, LOW);
+    digitalWrite(6, LOW);
+    digitalWrite(16, LOW);
+    digitalWrite(17, LOW);
+    digitalWrite(19, LOW);
+    redwin = false;
   }
 
   //Outputs Current Player to Console, greenred false means current player is red
@@ -396,7 +434,7 @@ void loop()
         delay(10); // Delay a little bit to improve simulation performance
         greenred = true;
         r2 = true;
-        Serial.println ("pos");
+
       }
       else if ((greenred == true) && (r2 == false)) {
         digitalWrite(8, HIGH);
